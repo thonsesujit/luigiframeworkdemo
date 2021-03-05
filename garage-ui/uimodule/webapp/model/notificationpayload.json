@@ -1,0 +1,19 @@
+{
+   "NotificationClaims" : {
+    "objectNumber" : "",
+    "partnerFunction" : "KU",
+    "type" : "Q1",
+    "equipmentId" : "000000000210100024",
+    "materialId" : "BATTERY",
+    "plantId" : "1010",
+    "divisionId" : "00",
+    "salesOrg" : "1010",
+    "distChannel" : "10",
+    "customerId" : "0010100001",
+    "description" : "Kurztext",
+    "externalReference" : "4711",
+    "codeGroup" : "QM-COD",
+    "coding" : "0001",
+    "companyCode" : "1010"
+   }
+}

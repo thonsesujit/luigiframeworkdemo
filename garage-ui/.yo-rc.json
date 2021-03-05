@@ -1,0 +1,17 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "garageOwnerUi",
+    "namespace": "com.sap.dsc.ids.wty",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "viewname": "MainView",
+    "ui5libs": "Content delivery network (OpenUI5)",
+    "newdir": false,
+    "namespaceURI": "com/sap/dsc/ids/wty",
+    "uimodules": [
+      "uimodule",
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}

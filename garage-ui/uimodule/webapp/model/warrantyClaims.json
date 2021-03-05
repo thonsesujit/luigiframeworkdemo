@@ -1,0 +1,22 @@
+{
+    "WarrantyClaims": [
+        {
+            "WarrantyId": "1234",
+            "Information": "Product 1",
+            "CreationDate": "2020-11-12",
+            "Status": "In Progress"
+        },
+        {
+            "WarrantyId": "5678",
+            "Information": "Product 2",
+            "CreationDate": "2020-11-16",
+            "Status": "In Progress"
+        },
+        {
+            "WarrantyId": "8383",
+            "Information": "Product 2",
+            "CreationDate": "2020-11-16",
+            "Status": "Completed"
+        }
+    ]
+}

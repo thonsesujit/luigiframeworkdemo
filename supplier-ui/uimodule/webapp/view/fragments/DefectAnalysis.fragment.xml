@@ -1,0 +1,24 @@
+<!-- <core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog id="defectAnalysisReport" title="Defect Analysis Insights Response" type="Message" contentWidth="800px">
+		<content>
+			<Text text="This will be replaced by defect analysis result pdf"></Text>
+			<!-- <ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+				<FlexBox direction="Column" renderType="Div" class="sapUiSmallMargin">
+					<PDFViewer source="{/Source}" title="{/Title}" height="{/Height}"
+					showDownloadButton="false">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</PDFViewer>
+				</FlexBox>
+			</ScrollContainer> -->
+		</content>
+		<endButton>
+			<Button text="Close" press=".onCancelDefectAnalysisFragment"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition> -->

@@ -1,0 +1,349 @@
+<mvc:View controllerName="com.sap.dsc.ids.wty.supplierClerkUI.controller.DefectAnalysis" displayBlock="true"
+  xmlns="sap.uxap"
+  xmlns:m="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:u="sap.ui.unified"
+  xmlns:core="sap.ui.core"
+  xmlns:layout="sap.ui.layout"
+  xmlns:forms="sap.ui.layout.form"
+  xmlns:fo="sap.ui.layout.form">
+  <m:Page title="Defect Analysis View" showNavButton="true" navButtonPress=".onNavBack">
+    <m:content>
+      <m:Button text="Data Analysis View" press="onNavtoReportSummary" class="AlignBtnRight sapUiSmallMarginEnd"></m:Button>
+      <u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+        <u:secondaryContent>
+          <m:Table id="carDataSets" inset="false" items="{ path: 'carData>/', sorter: { path: 'carDataSetId', descending: false } }" growing="true" growingThreshold="15">
+            <m:columns>
+              <m:Column>
+                <m:Text text="{i18n>vehicleId}"/>
+              </m:Column>
+            </m:columns>
+            <m:items>
+              <m:ColumnListItem type="Navigation" press=".onCarDataListItemPressed">
+                <m:cells>
+                  <m:Text text="{carData>dtcreadout/telematicKeyValues/0/value/dtcReadout/vehicleId}"/>
+                </m:cells>
+              </m:ColumnListItem>
+            </m:items>
+          </m:Table>
+        </u:secondaryContent>
+        <u:content>
+          <ObjectPageLayout id="ObjectPageLayout">
+            <headerTitle>
+              <ObjectPageHeader objectTitle="{carDataSet>/dtcreadout/telematicKeyValues/0/value/dtcReadout/vehicleId}"/>
+            </headerTitle>
+            <sections>
+              <ObjectPageSection titleUppercase="false" title="{i18n>generalData}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>displayUnit}" design="Bold"/>
+                        <m:Text text="{carDataSet>/displayUnit}"/>
+
+                        <m:Label text="{i18n>airTemperature}" design="Bold"/>
+                        <m:Text text="{carDataSet>/airTemperature}"/>
+
+                        <m:Label text="{i18n>gpsLat}" design="Bold"/>
+                        <m:Text text="{carDataSet>/gpsLat}"/>
+
+                        <m:Label text="{i18n>gpsLng}" design="Bold"/>
+                        <m:Text text="{carDataSet>/gpsLng}"/>
+
+                        <m:Label text="{i18n>heading}" design="Bold"/>
+                        <m:Text text="{carDataSet>/heading}"/>
+
+                        <m:Label text="{i18n>coolantTemperature}" design="Bold"/>
+                        <m:Text text="{carDataSet>/coolantTemperature}"/>
+
+                        <m:Label text="{i18n>altitude}" design="Bold"/>
+                        <m:Text text="{carDataSet>/altitude}"/>
+
+                        <m:Label text="{i18n>breakFluidDate}" design="Bold"/>
+                        <m:Text text="{carDataSet>/breakFluidDate}"/>
+
+                        <m:Label text="{i18n>cbsCount}" design="Bold"/>
+                        <m:Text text="{carDataSet>/cbsCount}"/>
+
+                        <m:Label text="{i18n>codeCBSHUAU}" design="Bold"/>
+                        <m:Text text="{carDataSet>/codeCBSHUAU}"/>
+
+                        <m:Label text="{i18n>statusTeleservice}" design="Bold"/>
+                        <m:Text text="{carDataSet>/statusTeleservice}"/>
+
+                        <m:Label text="{i18n>sunroofPosition}" design="Bold"/>
+                        <m:Text text="{carDataSet>/sunroofPosition}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>service}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>legalInspectionDate}" design="Bold"/>
+                        <m:Text text="{carDataSet>/legalInspectionDate}"/>
+
+                        <m:Label text="{i18n>nextServiceDate}" design="Bold"/>
+                        <m:Text text="{carDataSet>/nextServiceDate}"/>
+
+                        <m:Label text="{i18n>nextServiceDistance}" design="Bold"/>
+                        <m:Text text="{carDataSet>/nextServiceDistance}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>distanceData}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>averageDistance}" design="Bold"/>
+                        <m:Text text="{carDataSet>/averageDistance}"/>
+
+                        <m:Label text="{i18n>averageDistanceLongterm}" design="Bold"/>
+                        <m:Text text="{carDataSet>/averageDistanceLongterm}"/>
+
+                        <m:Label text="{i18n>mileage}" design="Bold"/>
+                        <m:Text text="{carDataSet>/mileage}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>chargingAndFueling}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>ChargingWindowSelection}" design="Bold"/>
+                        <m:Text text="{carDataSet>/ChargingWindowSelection}"/>
+
+                        <m:Label text="{i18n>batteryVoltage}" design="Bold"/>
+                        <m:Text text="{carDataSet>/batteryVoltage}"/>
+
+                        <m:Label text="{i18n>chargingAcAmpere}" design="Bold"/>
+                        <m:Text text="{carDataSet>/chargingAcAmpere}"/>
+
+                        <m:Label text="{i18n>chargingAcVoltage}" design="Bold"/>
+                        <m:Text text="{carDataSet>/chargingAcVoltage}"/>
+
+                        <m:Label text="{i18n>chargingMethod}" design="Bold"/>
+                        <m:Text text="{carDataSet>/chargingMethod}"/>
+
+                        <m:Label text="{i18n>chargingStatus}" design="Bold"/>
+                        <m:Text text="{carDataSet>/chargingStatus}"/>
+
+                        <m:Label text="{i18n>kombiCurrentRemainingRangeFuel}" design="Bold"/>
+                        <m:Text text="{carDataSet>/kombiCurrentRemainingRangeFuel}"/>
+
+                        <m:Label text="{i18n>remainingFuel}" design="Bold"/>
+                        <m:Text text="{carDataSet>/remainingFuel}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>vehicleStatus}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>trunkState}" design="Bold"/>
+                        <m:Text text="{carDataSet>/trunkState}"/>
+
+                        <m:Label text="{i18n>vehicleStatusDoors}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusDoors}"/>
+
+                        <m:Label text="{i18n>vehicleStatusEngineOnStatus}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusEngineOnStatus}"/>
+
+                        <m:Label text="{i18n>vehicleStatusIgnitionStatus}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusIgnitionStatus}"/>
+
+                        <m:Label text="{i18n>vehicleStatusLightStatus}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusLightStatus}"/>
+
+                        <m:Label text="{i18n>vehicleStatusLowVoltageBatteryChargingCondition}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusLowVoltageBattery/chargingCondition}"/>
+
+                        <m:Label text="{i18n>vehicleStatusLowVoltageBatteryPlausibility}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusLowVoltageBattery/plausibility}"/>
+
+                        <m:Label text="{i18n>vehicleStatusMobilephoneConnected}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusMobilephoneConnected}"/>
+
+                        <m:Label text="{i18n>vehicleStatusMovingFlag}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusMovingFlag}"/>
+
+                        <m:Label text="{i18n>vehicleStatusVehicleDateTime}" design="Bold"/>
+                        <m:Text text="{carDataSet>/vehicleStatusVehicleDateTime}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>latestTrip}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>segmentLastTripAccelerationStars}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripAccelerationStars}"/>
+
+                        <m:Label text="{i18n>segmentLastTripBrakingStars}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripBrakingStars}"/>
+
+                        <m:Label text="{i18n>segmentLastTripECOPlusTimeOfActivation}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripECOPlusTimeOfActivation}"/>
+
+                        <m:Label text="{i18n>segmentLastTripECOTimeOfActivation}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripECOTimeOfActivation}"/>
+
+                        <m:Label text="{i18n>segmentLastTripElectricEnergyConsumptionComfort}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripElectricEnergyConsumptionComfort}"/>
+
+                        <m:Label text="{i18n>segmentLastTripElectricEnergyConsumptionOverall}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripElectricEnergyConsumptionOverall}"/>
+
+                        <m:Label text="{i18n>segmentLastTripFuelConsumption}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripFuelConsumption}"/>
+
+                        <m:Label text="{i18n>segmentLastTripMileageSegmentEnd}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripMileageSegmentEnd}"/>
+
+                        <m:Label text="{i18n>segmentLastTripRatioElectricDrivenDistance}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripRatioElectricDrivenDistance}"/>
+
+                        <m:Label text="{i18n>segmentLastTripRecuperationOverall}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripRecuperationOverall}"/>
+
+                        <m:Label text="{i18n>segmentLastTripSOCSegmentEnd}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripSOCSegmentEnd}"/>
+
+                        <m:Label text="{i18n>segmentLastTripTimeSegmentEnd}" design="Bold"/>
+                        <m:Text text="{carDataSet>/segmentLastTripTimeSegmentEnd}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>navigation}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>naviInformationArrivalTime}" design="Bold"/>
+                        <m:Text text="{carDataSet>/naviInformationArrivalTime}"/>
+
+                        <m:Label text="{i18n>naviInformationDestinationLat}" design="Bold"/>
+                        <m:Text text="{carDataSet>/naviInformationDestination/Lat}"/>
+
+                        <m:Label text="{i18n>naviInformationDestinationLon}" design="Bold"/>
+                        <m:Text text="{carDataSet>/naviInformationDestination/Lon}"/>
+
+                        <m:Label text="{i18n>naviInformationDistanceToDestination}" design="Bold"/>
+                        <m:Text text="{carDataSet>/naviInformationDistanceToDestination}"/>
+
+                        <m:Label text="{i18n>naviInformationRemainingRange}" design="Bold"/>
+                        <m:Text text="{carDataSet>/naviInformationRemainingRange}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>telematicEvents}">
+                <subSections>
+                  <ObjectPageSubSection>
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>telematic_event_accident_call_automatic}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_accident_call_automatic}"/>
+
+                        <m:Label text="{i18n>telematic_event_accident_call_manual}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_accident_call_manual}"/>
+
+                        <m:Label text="{i18n>telematic_event_automation_service_call}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_automation_service_call}"/>
+
+                        <m:Label text="{i18n>telematic_event_battery_guard_call}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_battery_guard_call}"/>
+
+                        <m:Label text="{i18n>telematic_event_intelligent_emergency_call_automatic}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_intelligent_emergency_call_automatic}"/>
+
+                        <m:Label text="{i18n>telematic_event_intelligent_emergency_call_manual}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_intelligent_emergency_call_manual}"/>
+
+                        <m:Label text="{i18n>telematic_event_position_update}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_position_update}"/>
+
+                        <m:Label text="{i18n>telematic_event_roadside_assistance_call}" design="Bold"/>
+                        <m:Text text="{carDataSet>/telematic_event_roadside_assistance_call}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+
+              <ObjectPageSection titleUppercase="false" title="{i18n>telematicKeyValues}">
+                <subSections>
+                  <ObjectPageSubSection title="{i18n>dtcreadoutInfo}" titleUppercase="false">
+                    <blocks>
+                      <forms:SimpleForm editable="false" layout="ColumnLayout">
+                        <m:Label text="{i18n>name}" design="Bold"/>
+                        <m:Text text="{carDataSet>/dtcreadout/telematicKeyValues/0/name}"/>
+
+                        <m:Label text="{i18n>timestamp}" design="Bold"/>
+                        <m:Text text="{carDataSet>/dtcreadout/telematicKeyValues/0/timestamp}"/>
+
+                        <m:Label text="{i18n>unit}" design="Bold"/>
+                        <m:Text text="{carDataSet>/dtcreadout/telematicKeyValues/0/unit}"/>
+                      </forms:SimpleForm>
+                    </blocks>
+                  </ObjectPageSubSection>
+
+                  <ObjectPageSubSection title="{i18n>dtcreadout}" importance="Medium" titleUppercase="false">
+                    <m:Table inset="false" items="{carDataSet>/dtcreadout/telematicKeyValues/0/value/dtcReadout/dtcs}">
+                      <m:columns>
+                        <m:Column>
+                          <m:Text text="{i18n>dtcId}"/>
+                        </m:Column>
+                        <m:Column>
+                          <m:Text text="{i18n>ecuId}"/>
+                        </m:Column>
+                        <m:Column>
+                          <m:Text text="{i18n>status}"/>
+                        </m:Column>
+                      </m:columns>
+                      <m:items>
+                        <m:ColumnListItem>
+                          <m:cells>
+                            <m:Text text="{carDataSet>dtcId}"/>
+                            <m:Text text="{carDataSet>ecuId}"/>
+                            <m:Text text="{carDataSet>status}"/>
+                          </m:cells>
+                        </m:ColumnListItem>
+                      </m:items>
+                    </m:Table>
+                  </ObjectPageSubSection>
+                </subSections>
+              </ObjectPageSection>
+            </sections>
+          </ObjectPageLayout>
+        </u:content>
+      </u:SplitContainer>
+    </m:content>
+  </m:Page>
+
+</mvc:View>

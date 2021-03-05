@@ -1,0 +1,109 @@
+<mvc:View controllerName="com.sap.dsc.ids.wty.garageOwnerUi.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    xmlns:si="sap.suite.ui.commons.statusindicator">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <Panel id="panelDataSharing" expandable="false" expanded="true" width="auto" class="sapUiResponsiveMargin">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="{i18n>panelDataSharing}"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <l:BlockLayout id="BlocklayoutDataSharing" background="Dashboard">
+                                    <l:BlockLayoutRow scrollable="false">
+                                        <l:BlockLayoutCell title="{i18n>RewardInformationTitle}" width="50%">
+                                            <l:HorizontalLayout>
+                                                <l:VerticalLayout>
+                                                    <Title text="Total amount of received rewards"/>
+                                                    <NumericContent id="amountNmbId" scale="€" animateTextChange="true" value="12,50" valueColor="Good" indicator="Up" class="sapUiSmallMarginBottom"/>
+                                                    <Title text="Total reports"/>
+                                                    <NumericContent id="idTotalNmbReports" value="384" />
+                                                </l:VerticalLayout>
+                                                <l:VerticalLayout>
+                                                    <FlexBox wrap="Wrap">
+                                                        <items>
+                                                            <si:StatusIndicator id="indicatorEuroMain" width="200px" height="auto" value="20" class="sapUiSmallMargin">
+                                                                <si:ShapeGroup>
+                                                                    <si:LibraryShape shapeId="euro" />
+                                                                </si:ShapeGroup>
+                                                                <si:propertyThresholds>
+                                                                    <si:PropertyThreshold fillColor="Good" toValue="60"/>
+                                                                    <si:PropertyThreshold fillColor="Critical" toValue="20"/>
+                                                                    <si:PropertyThreshold fillColor="Neutral" toValue="90"/>
+                                                                </si:propertyThresholds>
+                                                            </si:StatusIndicator>
+                                                        </items>
+                                                    </FlexBox>
+                                                </l:VerticalLayout>
+                                            </l:HorizontalLayout>
+                                        </l:BlockLayoutCell>
+                                        <l:BlockLayoutCell title="{i18n>ReportDataTitle}" width="50%">
+                                            <l:VerticalLayout>
+                                                <Title text="{i18n>LabelReportQualityIssues}"/>
+                                                <Button id="btnReportQualityIssues" text="{i18n>BtnReportQualityIssues}" press="onPressBtnReportQualityIssues" width="20rem" icon="sap-icon://create-form" class="sapUiLargeMarginBegin sapUiMediumMarginBottom"/>
+                                                <Title text="{i18n>LabelCreateWarrantyClaim}"/>
+                                                <Button id="btnCreateWarrantyClaim" text="{i18n>BtnCreateWarrantyClaim}" press="onPressBtnCreateWarrantyClaim" width="20rem" icon="sap-icon://write-new" class="sapUiLargeMarginBegin"/>
+                                            </l:VerticalLayout>
+                                        </l:BlockLayoutCell>
+                                    </l:BlockLayoutRow>
+                                </l:BlockLayout>
+                            </content>
+                        </Panel>
+                        <Panel id="panelWarrantyClaim" expandable="false" expanded="true" width="auto" class="sapUiResponsiveMargin">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="{i18n>panelWarrantyClaim}"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <t:Table rows="{warrantyClaims>/WarrantyClaims}" visibleRowCount="{=${warrantyClaims>/WarrantyClaims}.length}" ariaLabelledBy="title" selectionMode="None">
+                                    <t:extension>
+                                        <OverflowToolbar>
+                                            <Title id="TabelID" text="Current warranty claims"/>
+                                        </OverflowToolbar>
+                                    </t:extension>
+                                    <t:columns>
+                                        <t:Column width="auto">
+                                            <Label text="Warranty ID"/>
+                                            <t:template>
+                                                <Text text="{warrantyClaims>WarrantyId}"/>
+                                            </t:template>
+                                        </t:Column>
+                                        <t:Column width="auto">
+                                            <Label text="Information"/>
+                                            <t:template>
+                                                <Text text="{warrantyClaims>Information}"/>
+                                            </t:template>
+                                        </t:Column>
+                                        <t:Column width="auto">
+                                            <Label text="Creation date"/>
+                                            <t:template>
+                                                <Text text="{warrantyClaims>CreationDate}"/>
+                                            </t:template>
+                                        </t:Column>
+                                        <t:Column width="auto">
+                                            <Label text="Status"/>
+                                            <t:template>
+                                                <Text text="{warrantyClaims>Status}"/>
+                                            </t:template>
+                                            <!-- <t:template>
+                                                <ObjectStatus text="{WarrantyClaims>Status}" state="{=${WarrantyClaims>Status} === 'In Progress' ? 'Indication03' : 'Indication04'}"/>
+                                            </t:template> -->
+                                        </t:Column>
+                                    </t:columns>
+                                </t:Table>
+                            </content>
+                        </Panel>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

@@ -1,0 +1,39 @@
+specVersion: "2.2"
+metadata:
+  name: garageOwnerUi_uimodule
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: uimodule/webapp
+framework:
+  name: OpenUI5
+  version: 1.80.0
+  libraries:
+    - name: sap.ui.core
+    - name: sap.m
+    - name: sap.ui.layout
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+    # - name: ui5-middleware-livereload
+    #   afterMiddleware: compression
+    #   configuration:
+    #     port: 35729
+    #     path: uimodule/webapp
+    #     server:
+    - name: ui5-middleware-simpleproxy
+      afterMiddleware: compression
+      mountPath: /claims/
+      configuration:
+        baseUri: "http://oem-sda:8080/claims/"
+        strictSSL: false
+    - name: ui5-middleware-simpleproxy
+      afterMiddleware: compression
+      mountPath: /qmnotifications/
+      configuration:
+        baseUri: "http://oem-sda:8080/qmnotifications/"
+        strictSSL: false
+  # settings:
+  #   httpPort: 2337
+  #   httpsPort: 2443

@@ -1,0 +1,137 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog id="createClaim" title="Create new Warranty Claim" type="Message" contentWidth="50%" contentHeight="70%">
+		<content>
+			<IconTabBar selectedKey="1" id="bar0" class="sapUiResponsiveContentPadding" tabDensityMode="Inherit" expanded="true" expandable="false" select="onIconTabBarSelect" applyContentPadding="false" stretchContentHeight="true">
+				<items>
+					<IconTabFilter id="Claim" icon="sap-icon://course-program" design="Horizontal" text="Warranty Claim" key="0">
+						<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="claimform" binding="{claimpayload>/Claim}">
+								<f:content>
+									<core:Title text="Description" />
+									<Label text="Defect Description" id="description"/>
+									<TextArea value="{claimpayload>description}" rows="3" showExceededText="true" valueLiveUpdate="false"/>
+									<Label text="Upload image" id="uploadImageId"/>
+									<u:FileUploader id="ClaimFileUploader" name="myFileUpload" placeholder="Choose a file..." width="100%"/>
+									<core:Title text="Claim Header" />
+									<Label text="Claim Type" id="claimType"/>
+									<Input width="100%" value="{claimpayload>type}"/>
+									<Label text="Reference Date" id="referenceDate"/>
+									<DatePicker value="{claimpayload>referenceDate}"/>
+									<Label text="External Object ID" id="externalObjectId"/>
+									<Input width="100%" id="input4" value="{claimpayload>externalObjectId}"/>
+									<Label text="Partner ID" id="partnerId"/>
+									<Input width="100%" value="{claimpayload>partnerId}"/>
+									<Label text="Partner Role" id="partnerRole"/>
+									<Input width="100%" value="{claimpayload>partnerRole}"/>
+									<Label text="Plant ID" id="plantId"/>
+									<Input width="100%" value="{claimpayload>plantId}"/>
+									<core:Title text="Claim Version" />
+									<Label text="Category" id="category"/>
+									<Input width="100%" value="{claimpayload>versions/0/category}"/>
+									<Label text="Partner ID" id="partnerIdclaim"/>
+									<Input width="100%" value="{claimpayload>versions/0/partnerId}"/>
+									<Label text="Partner Role" id="partnerRoleClaim"/>
+									<Input width="100%" value="{claimpayload>versions/0/partnerRole}"/>
+									<Label text="Is Active" id="isActive"/>
+									<Select width="100%" selectedItem="{claimpayload>versions/0/isActive}">
+										<items>
+											<core:Item key="true" text="true"/>
+											<core:Item key="false" text="false"/>
+										</items>
+									</Select>
+									<Label text="Sales Org" id="salesOrg"/>
+									<Input width="100%" value="{claimpayload>versions/0/salesOrg}"/>
+									<Label text="Distribution Channel" id="distChannel"/>
+									<Input width="100%" value="{claimpayload>versions/0/distChannel}"/>
+									<Label text="Division" id="division"/>
+									<Input width="100%" value="{claimpayload>versions/0/division}"/>
+									<Label text="Version Description"/>
+									<Input width="100%" value="{claimpayload>versions/0/description}"/>
+								</f:content>
+							</f:SimpleForm>
+						</ScrollContainer>
+					</IconTabFilter>
+
+					<IconTabSeparator icon="sap-icon://process"/>
+
+					<IconTabFilter id="ClaimItems" text="Claim Items" key="2" icon="sap-icon://activity-items" design="Horizontal">
+						<Table id="claimItemTable" growing="true" growingScrollToLoad="true" width="auto" mode="MultiSelect" items="{
+							path: 'claimpayload>/Claim/versions/0/items',
+							sorter: {
+								path: 'itemType',
+								descending: false
+							}
+						}">
+							<headerToolbar>
+								<Toolbar>
+									<Title id="tableHeader" text="Claim Items"/>
+									<ToolbarSpacer/>
+									<Button type="Transparent" text="Add" press="onPress" icon="sap-icon://create-form" ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+										<layoutData>
+											<FlexItemData growFactor="1" />
+										</layoutData>
+									</Button>
+									<Button type="Transparent" text="Delete" press="onUnlistObjects" icon="sap-icon://delete" ariaDescribedBy="rejectButtonDescription genericButtonDescription">
+										<layoutData>
+											<FlexItemData growFactor="1" />
+										</layoutData>
+									</Button>
+									<!-- <ToolbarSpacer/> -->
+									<!-- <SearchField id="searchField" tooltip="Enter a item name or a part of it" search=".onSearch" width="auto">
+									</SearchField>
+									<Button id="editButton" text="Edit" type="Transparent" press="onEdit" />
+									<Button id="saveButton" text="Save" type="Transparent" press="onSave" visible="false" />
+									<Button id="cancelButton" text="Cancel" type="Transparent" press="onCancel" visible="false" /> -->
+								</Toolbar>
+							</headerToolbar>
+
+							<columns>
+								<Column id="itemTypeColumn">
+									<Text id="itemType" text="Item Type"/>
+								</Column>
+								<Column id="itemKeyColumn">
+									<Text id="itemKey" text="Item Key"/>
+								</Column>
+								<Column id="itemQuantityColumn">
+									<Text id="itemQuantity" text="Quantity"/>
+								</Column>
+								<Column id="materialIdColumn">
+									<Text id="materialId" text="Material Id"/>
+								</Column>
+								<Column id="pricingColumn">
+									<Text id="pricing" text="Pricing"/>
+								</Column>
+
+							</columns>
+							<items>
+								<ColumnListItem press=".onPress">
+									<cells>
+										<ObjectIdentifier title="{claimpayload>itemType}"/>
+										<Text text = "{claimpayload>itemKey}"/>
+										<ObjectNumber number="{
+										path: 'claimpayload>itemQuantity',
+										formatter: '.formatter.numberUnit'}" unit="PC"/>
+										<Text text = "{claimpayload>materialId}"/>
+										<ObjectNumber unit="EUR" number="{
+										path: 'UnitPrice',
+										formatter: '.formatter.numberUnit'}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						<content/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<beginButton>
+			<Button text="Next" id= "btnCreateClaimSend" type="Emphasized" press=".onClaimRequestSend"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" press=".onCancelClaimForm"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

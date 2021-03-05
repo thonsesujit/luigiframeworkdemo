@@ -1,0 +1,87 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout"
+	xmlns:si="sap.suite.ui.commons.statusindicator"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog id="reportIssue" title="Quality Feedback Form" type="Message" contentWidth="800px" afterClose="reportDialog" >
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="qualityForm" binding="{notificationPayload>/NotificationClaims}">
+				<l:VerticalLayout>
+					<!-- <Label labelFor="inputCarIdentification" text="Car Identification"/>
+					<Input id="inputCarIdentification" width="100%" liveChange="inputReportLiveChange" />
+					<Label text="Error Number" class="sapUiSmallMarginTop"/>
+					<Input id="inputError" width="100%" liveChange="inputReportLiveChange"/>
+					<Label text="Description" id="reportDescription" class="sapUiSmallMarginTop"/>
+					<TextArea value="" rows="4" id="inputReportDescription" width="100%" liveChange="inputReportLiveChange"/> -->
+					<!-- <Label text="Object Number" />
+					<Input value="{notificationPayload>objectNumber}"/> -->
+					<Label text="Partner Function" />
+					<Input value="{notificationPayload>partnerFunction}" />
+					<Label text="Type" />
+					<Input value="{notificationPayload>type}" liveChange="inputReportLiveChange"/>
+					<Label text="Equipment Id" />
+					<Input value="{notificationPayload>equipmentId}" liveChange="inputReportLiveChange"/>
+					<Label text="Material ID" />
+					<Input value="{notificationPayload>materialId}" liveChange="inputReportLiveChange"/>
+					<Label text="Plant Id" />
+					<Input value="{notificationPayload>plantId}" liveChange="inputReportLiveChange"/>
+					<Label text="Division Id" />
+					<Input value="{notificationPayload>divisionId}" liveChange="inputReportLiveChange"/>
+					<Label text="Sales Org" />
+					<Input value="{notificationPayload>salesOrg}" liveChange="inputReportLiveChange"/>
+					<Label text="Distribution Channel" />
+					<Input value="{notificationPayload>distChannel}" liveChange="inputReportLiveChange"/>
+					<Label text="Customer Id" />
+					<Input value="{notificationPayload>customerId}" liveChange="inputReportLiveChange"/>
+					<Label text="Description" />
+					<Input value="{notificationPayload>description}" liveChange="inputReportLiveChange"/>
+					<Label text="External Reference" />
+					<Input value="{notificationPayload>externalReference}" liveChange="inputReportLiveChange"/>
+					<Label text="Code Group" />
+					<Input value="{notificationPayload>codeGroup}" liveChange="inputReportLiveChange"/>
+					<Label text="Coding" />
+					<Input value="{notificationPayload>coding}" liveChange="inputReportLiveChange"/>
+					<Label text="Company" />
+					<Input value="{notificationPayload>companyCode}" liveChange="inputReportLiveChange"/>
+					<!-- <Label text="Upload image" id="image" class="sapUiSmallMarginTop"/>
+					<u:FileUploader 
+						id="ReportFileUploader" 
+						name="myFileUpload" 
+						placeholder="Choose a file..."
+						width="100%"
+						change="inputReportLiveChange"/> -->
+
+					<!-- <Label text="Input Progress" class="sapUiSmallMarginTop"/> -->
+					<!-- <ProgressIndicator
+						id="pi-with-animation"
+						displayValue="0%"
+						state="Success"
+						displayOnly="true"
+						class="sapUiMediumMarginTop"/> -->
+					<!-- <FlexBox wrap="Wrap">
+						<items>
+							<si:StatusIndicator id="indicatorEuro" width="50px" height="auto" class="sapUiSmallMargin">
+								<si:ShapeGroup>
+									<si:LibraryShape shapeId="euro" />
+								</si:ShapeGroup>
+								<si:propertyThresholds>
+									<si:PropertyThreshold fillColor="Critical" toValue="60"/>
+									<si:PropertyThreshold fillColor="Error" toValue="30"/>
+									<si:PropertyThreshold fillColor="Good" toValue="100"/>
+								</si:propertyThresholds>
+							</si:StatusIndicator>
+						</items>
+					</FlexBox> -->
+				</l:VerticalLayout>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="Send" type="Emphasized" press=".sendQMNotificationRequest"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" press=".onCancelReportIssue"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

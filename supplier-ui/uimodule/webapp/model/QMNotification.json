@@ -1,0 +1,19 @@
+{
+    "QMNotification": [
+        {
+            "id": 1,
+            "notificationDate":"",
+            "quantity":2
+        },
+        {
+            "id": 2,
+            "notificationDate":"",
+            "quantity":5
+        },
+        {
+            "id": 3,
+            "notificationDate":"",
+            "quantity":8
+        }
+    ]
+}

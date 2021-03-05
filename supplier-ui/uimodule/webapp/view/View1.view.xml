@@ -1,0 +1,96 @@
+<mvc:View controllerName="com.sap.dsc.ids.wty.supplierClerkUI.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:chart="sap.suite.ui.commons">
+    <Shell id="shell">
+        <Page id="page" title="{i18n>title}">
+            <content>
+                <Panel id="panelDataSharing" expandable="false" expanded="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="QM notifications"/>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <l:BlockLayout id="BlocklayoutDataSharing" background="Dashboard">
+                            <l:BlockLayoutRow scrollable="false">
+                                <l:BlockLayoutCell width="70%">
+                                    <Title text="Historical QM notifications"/>
+                                    <viz:VizFrame id="vizFrame" uiConfig="{applicationSet:'fiori'}" height="20rem" width="100%" vizType="column" legendVisible="false" vizProperties="{
+                                                    plotArea: {
+                                                        dataLabel: {
+                                                            visible: false
+                                                        }
+                                                    },
+                                                    title: {
+                                                        text: ''
+                                                    }
+                                                }">
+                                        <viz:dataset>
+                                            <viz.data:FlattenedDataset data="{HistoricalQMNotifications>/QMNotifications}">
+                                                <viz.data:dimensions>
+                                                    <viz.data:DimensionDefinition name="Month" value="{Month}" />
+                                                </viz.data:dimensions>
+                                                <viz.data:measures>
+                                                    <viz.data:MeasureDefinition name="Amount" value="{Amount}" />
+                                                </viz.data:measures>
+                                            </viz.data:FlattenedDataset>
+                                        </viz:dataset>
+
+                                        <viz:feeds>
+                                            <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="Amount" />
+                                            <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Month" />
+                                        </viz:feeds>
+                                    </viz:VizFrame>
+                                </l:BlockLayoutCell>
+                                <l:BlockLayoutCell width="30%">
+                                    <Title text="Current QM notifications"/>
+                                    <NotificationListItem title="4711 QM notification" description="broken gearbox" showCloseButton="true" datetime="today" unread="true" priority="None" highlight="Warning"/>
+                                    <NotificationListItem title="0815 QM notification" description="defective individual parts" showCloseButton="true" datetime="2 days ago" unread="true" priority="None" highlight="Warning"/>
+                                    <NotificationListItem title="5322 QM notification" description="faulty assembly" showCloseButton="true" datetime="3 days ago" unread="true" priority="None" highlight="Warning"/>
+                                </l:BlockLayoutCell>
+                            </l:BlockLayoutRow>
+                        </l:BlockLayout>
+                    </content>
+                </Panel>
+                <Panel id="panelWarrantyClaim" expandable="false" expanded="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <Toolbar>
+                            <OverflowToolbar>
+                                <Title text="Request additional data for defect analysis"/>
+                            </OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://settings" press=".onrequestSettingsPressed"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+
+                    <content>
+                        <form:SimpleForm id="requestFordata" editable="true" layout="ResponsiveGridLayout" binding="{requestData}" columnsXL="1" columnsL="1" columnsM="1">
+                            <form:content>
+                                <Label text="Material Number"></Label>
+                                <Input value="S12WD" width="100%"></Input>
+                                <Label text="Date From"></Label>
+                                <DatePicker id="FromDatePickter" value="{/RequestData/fromDate}"/>
+                                <Label text="Date To"></Label>
+                                <DatePicker id="ToDatePicker" value="{/RequestData/toDate}"/>
+                            </form:content>
+                        </form:SimpleForm>
+                        <Toolbar class="sapUiSmallMarginBottom">
+                            <ToolbarSpacer/>
+                            <Button text="Request" type="Emphasized" press=".onGETadditionalData" />
+                            <Button text="Cancel" press=".onCancelPressed"/>
+                            <Button text="Data Expiration" press=".onSubscriptionExpired" class="sapUiTinyMarginEnd"/>
+                        </Toolbar>
+                    </content>
+                </Panel>
+            </content>
+        </Page>
+    </Shell>
+</mvc:View>

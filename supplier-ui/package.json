@@ -1,0 +1,38 @@
+{
+  "name": "supplierClerkUI",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "ui5 serve --config=uimodule/ui5.yaml -o index.html --accept-remote-connections",
+    "build:ui": "run-s  build:uimodule",
+    "test": "run-s lint karma",
+    "karma-ci": "karma start karma-ci.conf.js",
+    "clearCoverage": "shx rm -rf coverage",
+    "karma": "run-s clearCoverage karma-ci",
+    "lint": "eslint .",
+    "serve:uimodule": "ui5 serve --config=uimodule/ui5.yaml",
+    "build:uimodule": "ui5 build --config=uimodule/ui5.yaml --clean-dest --dest uimodule/dist --include-task=generateManifestBundle"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^2.4.1",
+    "eslint": "^7.7.0",
+    "karma": "^5.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-ui5": "^2.2.0",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.2",
+    "ui5-middleware-livereload": "^0.4.1",
+    "ui5-middleware-simpleproxy": "^0.6.0"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-middleware-livereload",
+      "ui5-middleware-simpleproxy"
+    ]
+  },
+  "dependencies": {
+    "@luigi-project/client": "^1.11.0",
+    "axios": "^0.21.0",
+    "require": "^2.4.20"
+  }
+}

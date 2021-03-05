@@ -1,0 +1,49 @@
+{
+    "Claim": {
+        "claimId": "",
+        "type": "ZAM1",
+        "referenceDate": "20201117",
+        "externalClaimId": "010101",
+        "externalObjectId": "na",
+        "partnerId": "10100001",
+        "partnerRole": "AG",
+        "plantId": "1010",
+        "description": "The gearbox is broken and had to be replaced.",
+        "versions": [
+            {
+                "version": 1,
+                "category": "IC",
+                "partnerId": "10100001",
+                "partnerRole": "AG",
+                "isActive": true,
+                "salesOrg": "1010",
+                "distChannel": "10",
+                "division": "00",
+                "description": "Version information",
+                "items": [
+                    {
+                        "itemType": "MAT",
+                        "itemKey": "BATTERY",
+                        "itemQuantity": 1,
+                        "materialId": "BATTERY",
+                        "description": "Text english header"
+                    },
+                    {
+                        "itemType": "SUBL",
+                        "itemKey": "WTY-SUBL",
+                        "itemQuantity": 1,
+                        "materialId": "WTY-SUBL",
+                        "description": "Text english material item",
+                        "pricing": [
+                            {
+                                "conditionType": "ZCL0",
+                                "amount": 2366,
+                                "currency": "EUR"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

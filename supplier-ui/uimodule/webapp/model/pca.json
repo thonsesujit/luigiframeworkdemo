@@ -1,0 +1,14 @@
+{
+    "PCA":[
+        {
+            "component":"Fahrstilbewertung vorausschauendes Fahren",
+            "actual":0.98,
+            "predicted":0.96
+        },
+        {
+            "component":"Fahrstilbewertung Beschleunigungsverhalten",
+            "actual":0.89,
+            "predicted":0.87
+        }
+    ]
+}

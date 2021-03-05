@@ -1,0 +1,141 @@
+{
+  "_version": "1.21.0",
+  "sap.app": {
+    "id": "com.sap.dsc.ids.wty.supplierClerkUI",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "com.sap.dsc.ids.wty.supplierClerkUI.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "idAppControl"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.sap.dsc.ids.wty.supplierClerkUI.i18n.i18n"
+        }
+      },
+      "requestData": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/QMNotification.json",
+        "preload": true,
+        "settings": {}
+      },
+      "requestDataSettings": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/requestDataSettings.json",
+        "preload": true,
+        "settings": {}
+      },
+      "carData": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/carData.json",
+        "preload": true,
+        "settings": {}
+      },
+      "mocPCA": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/pca.json",
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "com.sap.dsc.ids.wty.supplierClerkUI.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true,
+        "clearControlAggregation": false,
+        "transition": "slide",
+        "bypassed": {
+          "target": []
+        }
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": "",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "DefectAnalysis",
+          "pattern": "RouteDefectAnalysis",
+          "target": [
+            "TargetDefectAnalysis"
+          ]
+        },
+        {
+          "name": "SummaryDefectAnalysis",
+          "pattern": "RouteSummaryDefectAnalysis",
+          "target": [
+            "TargetSummaryDefectAnalysis"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "viewName": "View1",
+          "viewLevel": 1
+        },
+        "TargetDefectAnalysis": {
+          "viewType": "XML",
+          "viewName": "DefectAnalysis"
+        },
+        "TargetSummaryDefectAnalysis": {
+          "viewType": "XML",
+          "viewId": "SummaryDefectAnalysis",
+          "viewName": "SummaryDefectAnalysis"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "supplierClerkUI",
+    "namespace": "com.sap.dsc.ids.wty",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "viewname": "View1",
+    "ui5libs": "Content delivery network (OpenUI5)",
+    "newdir": false,
+    "namespaceURI": "com/sap/dsc/ids/wty",
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+    "QMNotifications": [
+        {
+        "Month": "Jan",
+        "Amount": 53
+        },
+        {
+        "Month": "Feb",
+        "Amount": 82
+        },
+        {
+        "Month": "Mar",
+        "Amount": 76
+        },
+        {
+        "Month": "Apr",
+        "Amount": 90
+        },
+        {
+        "Month": "May",
+        "Amount": 55
+        },
+        {
+        "Month": "Jun",
+        "Amount": 80
+        },
+        {
+        "Month": "Jul",
+        "Amount": 83
+        },
+        {
+        "Month": "Aug",
+        "Amount": 74
+        },
+        {
+        "Month": "Sep",
+        "Amount": 81
+        },
+        {
+        "Month": "Oct",
+        "Amount": 95
+        },
+        {
+        "Month": "Nov",
+        "Amount": 119
+        },
+        {
+        "Month": "Dec",
+        "Amount": 134
+        }
+    ]
+}
